@@ -3,19 +3,19 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 	
-public class Experiment {
+public class Experiment3 {
 	private int numberOfCells = (int) Math.pow (10, 5);
 	private int numberOfKeysPerCell = 1;
 	private int numberOfPrimaryCellsPerKey = 3;
 	private int numberOfBackUpCellsPerKey = 1;
 	private double bias = 0.97;
-	private int globalCounter = 30;
+	private int globalCounter = 300;
 	private double loadFactor = 0.75;
 	private int pageSize = (int) Math.pow (10, 2);
 	private int numberBuffersPerPage = 5;
 	
 	public CuckooGraph onlineCuckooHashing (RandomWalkInsert randomWalkInsert, ExperimentParams eParams, 
-			Experiment exp){
+			Experiment3 exp){
 		CuckooGraph cuckooGraph = new CuckooGraph(eParams);
 		cuckooGraph.init(eParams);
 		cuckooGraph.createGraph(eParams);		
@@ -36,7 +36,7 @@ public class Experiment {
 		double keysInsertedFraction[][] = new double[2][numberExperiments];
 		double expectedAccessCount[][] = new double[2][numberExperiments];
 		double averageNumberSteps[][] = new double[2][numberExperiments];
-		Experiment exp = new Experiment();
+		Experiment3 exp = new Experiment3();
 		PrintWriter pkfWriter = new PrintWriter("./results/primaryKeyFraction.csv", "UTF-8");
 		PrintWriter keysInsertedWriter = new PrintWriter("./results/fractionKeysInsertedFraction.csv", "UTF-8");
 		PrintWriter expAccessCountWriter = new PrintWriter("./results/expectedAccessCount.csv", "UTF-8");
@@ -76,3 +76,4 @@ public class Experiment {
 	}
 	
 }
+
